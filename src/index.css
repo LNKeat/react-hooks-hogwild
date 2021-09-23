@@ -128,6 +128,31 @@ ul {
   transform: scale(1.05);
 }
 
+.expanded {
+  position: absolute;
+  z-index: 2;
+  min-height: 50vh;
+  min-width: 75vh;
+  margin-top: 2vh;
+  padding: 3vh;
+  border: 6px, solid, rosybrown;
+  color: rgb(32, 8, 8);
+  background-color: rgb(241, 210, 187);
+}
+
+.expanded ul{
+  padding: 2vh;
+  line-height: 2em;
+  text-align: left;
+  font-family: Georgia, serif;
+  font-size: 1.5em;
+  color: black;
+}
+
+button {
+  padding: auto;
+}
+
 
 .App-logo {
   animation: App-logo-spin infinite 5s linear;
