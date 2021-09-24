@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import Tile from './Tile';
 import HogDetails from './HogDetails';
 
-function TileContainer({ hogs }) {
+function TileContainer({ hogs, greasedFilterOn }) {
   const [selectedHog, setSelectedHog] = useState(null)
-  const [hogsToDisplay, setHogsToDisplay] = useState(hogs)
 
   function handleHogClick(e) {
     setSelectedHog(e.target.value)
@@ -13,8 +12,6 @@ function TileContainer({ hogs }) {
   function handleCloseDetails() {
     setSelectedHog(null)
   }
-
-  // greasedFilterOn ? setHogsToDisplay(hogs.filter(hog => hog.greased === true)) : setHogsToDisplay(hogs)
 
 
   let featuredHog;
@@ -39,3 +36,39 @@ function TileContainer({ hogs }) {
 }
 
 export default TileContainer
+
+// import React, { useState } from 'react'
+// import Tile from './Tile';
+// import HogDetails from './HogDetails';
+
+// function TileContainer({ hogs }) {
+//   let mappedHogs
+//   const [selectedHog, setSelectedHog] = useState(null)
+
+//   function handleHogClick(e) {
+//     setSelectedHog(e.target.value)
+//   }
+
+//   function handleCloseDetails() {
+//     setSelectedHog(null)
+//   }
+
+//   // IF HOGS => will only be mapped if hogs is a truthy value
+//   if (hogs) {
+//     mappedHogs = hogs.map(hog => <Tile key={hog.name} hog={hog} handleHogClick={handleHogClick}/>)
+//   }
+//   return (
+//     <div className="ui grid container">
+//       {
+//         selectedHog ? <HogDetails hog={selectedHog} handleCloseDetails={handleCloseDetails} /> : null
+//       };
+
+//       {/* // DISPLAY mappedHogs if truthy */}
+//       {
+//         mappedHogs ? mappedHogs : null
+//       }
+//     </div>
+//   )
+// }
+
+// export default TileContainer
