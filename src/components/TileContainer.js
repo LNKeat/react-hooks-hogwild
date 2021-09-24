@@ -4,6 +4,8 @@ import HogDetails from './HogDetails';
 
 function TileContainer({ hogs }) {
   const [selectedHog, setSelectedHog] = useState(null)
+  const [hogsToDisplay, setHogsToDisplay] = useState(hogs)
+
   function handleHogClick(e) {
     setSelectedHog(e.target.value)
   }
@@ -11,6 +13,9 @@ function TileContainer({ hogs }) {
   function handleCloseDetails() {
     setSelectedHog(null)
   }
+
+  // greasedFilterOn ? setHogsToDisplay(hogs.filter(hog => hog.greased === true)) : setHogsToDisplay(hogs)
+
 
   let featuredHog;
   for (let hog of hogs) {

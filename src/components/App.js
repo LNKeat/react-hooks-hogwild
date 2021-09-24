@@ -7,11 +7,13 @@ console.log(hogs)
 
 function App() {
 	const [greasedFilterOn, setGreasedFilterOn] = useState(false)
-	const [hogsToDisplay, setHogsToDisplay] = useState(hogs)
+  const [hogsToDisplay, setHogsToDisplay] = useState(hogs)
 
 	function handleFilter(){
-		setGreasedFilterOn(!greasedFilterOn)
-		greasedFilterOn ? setHogsToDisplay(hogs.filter(hog => hog.greased === true)) : setHogsToDisplay(hogs)
+		setGreasedFilterOn((a) => {
+      return !a
+    })
+    setGreasedFilterOn(!greasedFilterOn)
 	}
 
 	function handleSortBy(e){
@@ -41,7 +43,7 @@ function App() {
 		<div className="App">
 			<Nav />
 			<NarrowField greasedFilterOn={greasedFilterOn} handleSortBy={handleSortBy} handleFilter={handleFilter}  />
-			<TileContainer hogs={hogsToDisplay} />
+			<TileContainer hogs={hogs} />
 		</div>
 	);
 }
